@@ -14,27 +14,8 @@
 
   <body>
     <div class="container">
-      <div class="row">
+      <div class="row" id="cat_container">
 
-        <div class="col-md-6">
-          <div>
-            <img id="cat-1" src="cat.jpg">
-          </div>
-          <div>
-            Num Clicks: <span id="num_clicks-1">0</span><br>
-            Name: <span id ="name-1"></span>
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div>
-            <img id="cat-2" src="cat2.jpg">
-          </div>
-          <div>
-            Num Clicks: <span id="num_clicks-2">0</span><br>
-            Name: <span id ="name-2"></span>
-          </div>
-        </div>
 
       </div>
     </div>
@@ -46,8 +27,23 @@
 
     $( document ).ready(function() {
 
+
+
       for (var i = 1; i <= 2; i++)
       {
+
+        $("#cat_container").append(`
+          <div class="col-md-6">
+            <div>
+              <img id="cat-${i}" src="cat${i}.jpg">
+            </div>
+            <div>
+              Num Clicks: <span id="num_clicks-${i}">0</span><br>
+              Name: <span id ="name-${i}"></span>
+            </div>
+          </div>`
+        );
+
         num_clicks[i] = 0
 
         $("#name-" + i).text(cat_names[i-1])
